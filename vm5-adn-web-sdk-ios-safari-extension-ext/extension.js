@@ -5,14 +5,19 @@ MMExtensionClass.prototype = {
       var result = [];
       var divs = document.getElementsByTagName("div");
       for (var i = 0; i < divs.length; i++) {
+        var divName = "";
         if (divs[i].getAttribute("id")) {
-          result.push("#" + divs[i].id);
+          divName += "#" + divs[i].id;
         }
         else if (divs[i].getAttribute("class")) {
-          result.push("." + divs[i].className);
+          divName += "." + divs[i].className.replace(new RegExp(" ", "g"), ".");
+        }
+
+        if (divName.length) {
+          result.push(divName);
         }
       }
-      arguments.completionFunction({ "divs": result });
+      arguments.completionFunction({ "url": window.location.href, "divs": result });
     },
 
     finalize: function(arguments) {

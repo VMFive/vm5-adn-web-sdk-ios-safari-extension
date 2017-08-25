@@ -11,7 +11,7 @@
 @interface SelectPicker ()
 
 @property (nonatomic, strong) NSArray *items;
-@property (nonatomic, weak) UITextField *target;
+@property (nonatomic, copy) void (^change)(NSString *text);
 
 @end
 
@@ -30,31 +30,30 @@
 #pragma mark - UIPickerViewDelegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if ([self.target.text isEqualToString:@""]) {
-        self.target.text = self.items[row];
-    }
     return self.items[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.target.text = self.items[row];
+    if (self.change) {
+        self.change(self.items[row]);
+    }
 }
 
 #pragma mark - Class Method
 
-+ (instancetype)show:(NSArray<NSString *> *)items on:(UITextField *)target {
-    return [[SelectPicker alloc] initWith:items target:target];
++ (instancetype)show:(NSArray<NSString *> *)items onChange:(void (^)(NSString *text))change {
+    return [[SelectPicker alloc] initWith:items change:change];
 }
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWith:(NSArray<NSString *> *)items target:(UITextField *)target {
+- (instancetype)initWith:(NSArray<NSString *> *)items change:(void (^)(NSString *text))change {
     self = [super init];
     if (self) {
         self.items = items;
-        self.target = target;
+        self.change = change;
         if (self.items.count) {
-            self.target.text = self.items[0];
+            change(self.items[0]);
         }
         self.dataSource = self;
         self.delegate = self;

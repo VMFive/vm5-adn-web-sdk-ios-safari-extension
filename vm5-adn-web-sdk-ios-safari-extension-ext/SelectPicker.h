@@ -10,7 +10,6 @@
 
 @interface SelectPicker : UIPickerView <UIPickerViewDataSource, UIPickerViewDelegate>
 
-+ (instancetype)show:(NSArray<NSString *> *)items on:(UITextField *)target;
-- (instancetype)initWith:(NSArray<NSString *> *)items target:(UITextField *)target;
++ (instancetype)show:(NSArray<NSString *> *)items onChange:(void (^)(NSString *text))change;
 
 @end

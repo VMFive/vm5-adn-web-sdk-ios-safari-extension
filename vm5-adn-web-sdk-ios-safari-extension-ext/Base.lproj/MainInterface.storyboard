@@ -69,14 +69,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjd-do-1Oa">
+                                <rect key="frame" x="0.0" y="161" width="320" height="367"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="zjd-do-1Oa" firstAttribute="top" secondItem="YuJ-8Y-rC1" secondAttribute="bottom" constant="10" id="4ff-nI-ASR"/>
+                            <constraint firstAttribute="trailing" secondItem="zjd-do-1Oa" secondAttribute="trailing" id="8Sv-eR-Dh0"/>
                             <constraint firstItem="YuJ-8Y-rC1" firstAttribute="centerY" secondItem="B30-RG-IDu" secondAttribute="centerY" id="8dw-4J-kcZ"/>
                             <constraint firstAttribute="trailing" secondItem="NOA-Dm-cuz" secondAttribute="trailing" id="A05-Pj-hrr"/>
+                            <constraint firstItem="zjd-do-1Oa" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="Akd-E2-98a"/>
                             <constraint firstItem="0lk-fv-3uB" firstAttribute="centerY" secondItem="PlX-gm-yzd" secondAttribute="centerY" id="GM5-NB-qhp"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="HxO-8t-aoh"/>
                             <constraint firstItem="B30-RG-IDu" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" constant="20" id="QBR-r8-9J6"/>
+                            <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="zjd-do-1Oa" secondAttribute="bottom" id="Qex-KR-Ebq"/>
                             <constraint firstItem="B30-RG-IDu" firstAttribute="top" secondItem="PlX-gm-yzd" secondAttribute="bottom" constant="20" id="VtY-4Q-9RI"/>
                             <constraint firstItem="0lk-fv-3uB" firstAttribute="leading" secondItem="PlX-gm-yzd" secondAttribute="trailing" constant="10" id="XWb-96-raO"/>
                             <constraint firstItem="YuJ-8Y-rC1" firstAttribute="centerX" secondItem="0lk-fv-3uB" secondAttribute="centerX" id="Y5Q-iS-HG4"/>
@@ -92,6 +100,7 @@
                     <connections>
                         <outlet property="adTypeSelectTextField" destination="0lk-fv-3uB" id="GIc-zb-PcO"/>
                         <outlet property="divSelectTextField" destination="YuJ-8Y-rC1" id="td3-K0-RvF"/>
+                        <outlet property="previewWebView" destination="zjd-do-1Oa" id="VYG-Dc-3Vz"/>
                         <outlet property="view" destination="zMn-AG-sqS" id="Qma-de-2ek"/>
                     </connections>
                 </viewController>

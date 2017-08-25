@@ -11,6 +11,5 @@
 @interface DoneToolbar : UIToolbar
 
 + (instancetype)on:(UIView *)target;
-- (instancetype)initWith:(UIView *)target;
 
 @end
